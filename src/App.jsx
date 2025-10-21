@@ -5,9 +5,9 @@ import "./App.css";
 
 function App() {
   const [formData, setFormData] = useState({
-    nom: "",
+    name: "",
     dateDue: "",
-    priorite: "Basse",
+    priority: "low",
     isCompleted: false,
   });
 
@@ -28,21 +28,21 @@ function App() {
     <Container className="mt-5">
       <Row className="justify-content-center">
         <Col md={8} lg={6}>
-          <h2 className="mb-4">Formulaire de Tâche</h2>
+          <h1 className="mb-4">Formulaire de Tâche</h1>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="name">
               <Form.Label>Nom *</Form.Label>
               <Form.Control
                 type="text"
-                name="nom"
-                value={formData.nom}
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
                 required
                 placeholder="Entrez le nom de la tâche"
               />
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="dateDue">
               <Form.Label>Date *</Form.Label>
               <Form.Control
                 type="date"
@@ -53,20 +53,20 @@ function App() {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="priority">
               <Form.Label>Priorité</Form.Label>
               <Form.Select
-                name="priorite"
-                value={formData.priorite}
+                name="priority"
+                value={formData.priority}
                 onChange={handleChange}
               >
-                <option value="Basse">Basse</option>
-                <option value="Moyenne">Moyenne</option>
-                <option value="Elevée">Elevée</option>
+                <option value="low">Basse</option>
+                <option value="medium">Moyenne</option>
+                <option value="high">Elevée</option>
               </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="isCompleted">
               <Form.Check
                 type="checkbox"
                 name="isCompleted"
