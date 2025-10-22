@@ -46,7 +46,9 @@ const schema = yup.object().shape({
     .oneOf(
       ["low", "medium", "high"],
       "La priorité doit être basse, moyenne ou élevée"
-    ),
+    )
+    .required("La priorité est requise"),
+  isCompleted: yup.boolean(),
 });
 
 function App() {
@@ -61,6 +63,7 @@ function App() {
       name: "",
       dateDue: "",
       priority: "low",
+      isCompleted: false,
     },
   });
 
@@ -123,7 +126,11 @@ function App() {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="isCompleted">
-              <Form.Check type="checkbox" label="Tâche terminée" />
+              <Form.Check
+                type="checkbox"
+                {...register("isCompleted")}
+                label="Tâche terminée"
+              />
             </Form.Group>
 
             <Button variant="primary" type="submit" className="w-100">
